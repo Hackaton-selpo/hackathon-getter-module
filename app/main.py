@@ -13,8 +13,12 @@ async def lifespan(app: FastAPI):
     yield
 
 
-app = FastAPI(title="xKamysh is the best", lifespan=lifespan)
-
+app = FastAPI(
+    title="xKamysh is the best",
+    lifespan=lifespan,
+    root_path_in_servers=True,
+    root_path='/letters',
+)
 
 @app.get("/", include_in_schema=False)
 async def root_redirect():
