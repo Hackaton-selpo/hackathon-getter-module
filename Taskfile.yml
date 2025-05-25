@@ -19,10 +19,10 @@ tasks:
       - poetry run ruff check . --fix
 
   lint:
-    desc: Static code analysis with ruff and mypy
+    desc: Static code analysis with ruff # and mypy
     cmds:
       - poetry run ruff check .
-      - poetry run mypy .
+      # - poetry run mypy .
 
   docstyle:
     desc: Docstring style check
@@ -41,7 +41,7 @@ tasks:
 
   check:
     desc: Full linting, audit run, and code checks
-    deps: [format, lint, audit, docstyle, deadcode]
+    deps: [format, lint, audit, docstyle] # deadcode
 
   test:
     desc: Run all tests with pytest

@@ -1,3 +1,8 @@
-from .letters import LettersAPI
+"""Модуль, предоставляющий маршруты (роуты) для работы с письмами.
 
-__all__ = ["LettersAPI"]
+Содержит готовый роутер для подключения к основному FastAPI-приложению.
+"""
+
+from .letters import router as letters_router
+
+__all__ = ["letters_router"]
