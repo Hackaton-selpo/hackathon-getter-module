@@ -8,6 +8,7 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
+from starlette.middleware.cors import CORSMiddleware
 
 from app.api.v1 import letters_router
 from app.db.database import init_db
@@ -53,3 +54,10 @@ async def root_redirect():
 
 
 app.include_router(letters_router, prefix="/letters", tags=["letters"])
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://yamata-no-orochi.nktkln.com"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
