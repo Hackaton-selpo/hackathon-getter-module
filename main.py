@@ -53,7 +53,10 @@ async def root_redirect():
     return RedirectResponse(url="/docs")
 
 
+from app.api.v1 import images_router
+
 app.include_router(letters_router, prefix="/letters", tags=["letters"])
+app.include_router(images_router, prefix="/letters", tags=["letters"])
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["https://yamata-no-orochi.nktkln.com"],

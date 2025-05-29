@@ -29,6 +29,10 @@ class Config(BaseSettings):
     POSTGRES_DB: str
     POSTGRES_USER: str
     POSTGRES_PASSWORD: str
+    users_db_user: str
+    users_db_databasename: str
+    users_db_host: str
+    users_db_port: str
 
     @property
     def POSTGRES_URL(self) -> str:
@@ -44,7 +48,7 @@ class Config(BaseSettings):
 
     # Конфигурация загрузки переменных окружения
     model_config = ConfigDict(env_file=".env")  # type: ignore
-    _ = model_config  # type: ignore
+    # _ = model_config  # type: ignore
 
 
 # Единственный экземпляр конфигурации, используемый в приложении
